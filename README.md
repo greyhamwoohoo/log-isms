@@ -1,5 +1,7 @@
-# serilog-isms
-Serilog implemented in Linux .Net 5 MVC App Service with various sinks. After running this, you will be able see the logs in storage and view them in Log Analytics:
+# log-isms
+An experiment with Terraform, Serilog/.Net 5, Azure Monitoring, Log Analytics, AppServices and Diagnostics. 
+
+After running this, you will be able see the logs in storage and view them in Log Analytics:
 
 ![Console Logs in Storage](docs/log-analytics.png)
 
