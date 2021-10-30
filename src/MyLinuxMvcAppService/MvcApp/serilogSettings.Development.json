@@ -1,0 +1,25 @@
+{
+  "Serilog": {
+    "Using": [ "Serilog.Sinks.AzureAnalytics" ],
+    "MinimumLevel": "Information",
+    "Override": {
+      "System": "Information",
+      "Microsoft": "Information",
+      "Microsoft.AspNetCore.Authentication": "Information",
+      "Microsoft.AspNetCore.SignalR": "Debug",
+      "Microsoft.AspNetCore.Http.Connections": "Debug"
+    },
+    "WriteTo": [
+      {
+        "Name": "AzureAnalytics",
+        "Args": {
+          "logName": "MvcApp",
+          "azureOfferingType": "Public",
+          "authenticationId": "***",
+          "workspaceId": "***"
+        }
+      }
+    ],
+    "Enrich": [ "FromLogContext", "WithMachineName", "WithThreadId", "WithThreadName", "WithEventType" ]
+  }
+}

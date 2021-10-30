@@ -1,0 +1,3 @@
+{
+  "#": "This base serilogSettings file will disable Serilog. Put all settings in a serilogSettings.ENVIRONMENTNAME.json file required for that environment. "
+}
