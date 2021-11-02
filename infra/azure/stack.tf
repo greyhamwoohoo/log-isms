@@ -47,12 +47,16 @@ resource "azurerm_app_service" "serilogisms" {
 
   app_settings = {
     "ASPNETCORE_ENVIRONMENT"                                     = "Development",
-    "SERILOG_PROFILE_NAME"                                       = "Development"
-    "SERILOGSETTING_SERILOG__MINIMUMLEVEL__DEFAULT"              = "Verbose"
+
+    "SERILOG_PROFILE_NAME"                                       = "Development",
+
+    "SERILOGSETTING_SERILOG__MINIMUMLEVEL__DEFAULT"              = "Verbose",
     "SERILOGSETTING_SERILOG__MINIMUMLEVEL__OVERRIDE__MICROSOFT"  = "Verbose",
     "SERILOGSETTING_SERILOG__MINIMUMLEVEL__OVERRIDE__SYSTEM"     = "Verbose"
     "SERILOGSETTING_SERILOG__WRITETO__0__ARGS__WORKSPACEID"      = azurerm_log_analytics_workspace.serilogisms.workspace_id,
     "SERILOGSETTING_SERILOG__WRITETO__0__ARGS__AUTHENTICATIONID" = azurerm_log_analytics_workspace.serilogisms.primary_shared_key
+
+    "APPLICATIONINSIGHTS__CONNECTIONSTRING" = azurerm_application_insights.serilogisms.connection_string
 
     "WEBSITE_RUN_FROM_PACKAGE" = "1"
   }
@@ -130,6 +134,15 @@ resource "azurerm_monitor_diagnostic_setting" "serilogisms" {
     }
   }
 }
+
+resource "azurerm_application_insights" "serilogisms" {
+  name                = "appi-serilogisms-${random_uuid.stem.result}"
+  location            = "Australia East"
+  resource_group_name = azurerm_resource_group.serilogisms.name
+  workspace_id        = azurerm_log_analytics_workspace.serilogisms.id
+  application_type    = "web"
+}
+
 
 /*
 // To show the logging categories and how they relate to the UI:

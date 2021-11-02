@@ -43,6 +43,13 @@ It takes some time (in my case: around 1 hour) for my custom log called 'MvcApp_
 
 ![Console Logs in Storage](docs/log-analytics.png)
 
+## AppInsights
+A minimalistic AppInsights implementation. 
+
+Smoke test: Once deployed to Azure, navigate between Home and Privacy in the App while looking at the Live Metrics view (Incoming Requests) in Application Insights:
+
+![Console Logs in Storage](docs/app-insights-smoke.png)
+
 # References
 | Link | Description | 
 | ---- | ----------- | 

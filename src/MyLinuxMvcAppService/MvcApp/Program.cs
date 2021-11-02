@@ -22,6 +22,10 @@ namespace MvcApp
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .UseSerilog()
+                .ConfigureAppConfiguration((hostingContext, configuration) =>
+                {
+                    configuration.AddEnvironmentVariables(prefix: "APPSETTING_");
+                })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
