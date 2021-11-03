@@ -1,7 +1,7 @@
 # log-isms
-An experiment with Terraform, Serilog/.Net 5, Azure Monitoring, Log Analytics, AppServices and Diagnostics. 
+An experiment with Terraform, Serilog/.Net 5, Azure Monitoring, Log Analytics, AppInsights, AppServices and Diagnostics. 
 
-After running this, you will be able see the logs in storage and view them in Log Analytics:
+After deploying this AppService, you will be able see the logs in storage and view them in Log Analytics:
 
 ![Console Logs in Storage](docs/log-analytics.png)
 
@@ -12,10 +12,10 @@ To create the resources using Terraform, add your SubscriptionID to variables.tf
 terraform apply
 ```
 
-Deploy the AppService using Visual Studio: right click the MvcApp, 'Publish' and choose your AppService. 
+Deploy the AppService using Visual Studio: right click the MvcApp, 'Publish' and create a new publish profile. 
 
 ## MyLinuxMvcAppService
-An AppService that is hosted on Linux that shows using various Serilog providers.
+A Linux AppService that shows using various Serilog providers and publishing custom events to AppInsights. 
 
 ### SERILOG_PROFILE_NAME
 The 'logging profile' to use for Serilog is specified with the SERILOG_PROFILE_NAME variable: by default, no Serilog settings are loaded. 'Local' and 'Development' are provided as an examples as 'serilogSettings.Local.json' and 'serilogSettings.Development.json'. See 'launchSettings.json' for examples. 
@@ -27,7 +27,7 @@ To output to the Debug window in Visual Studio via Serilog, you must configure t
 The default .Net Environment Variable Provider is used to support overriding individual values - such as MinimumalLevel. See 'launchSettings.json' for examples suchas SERILOGSETTINGS_SERILOG__MINIMUMLEVEL=Debug
 
 ## Logs captured 
-After publishing the logs, the following logs are available:
+After publishing the AppService to Azure, the following logs are available:
 
 ### Console, Http and Platform logs are captured
 Terraform is configured to add the Diagnostics Settings to write ConsoleLogs, HttpLogs and PlatformLogs to a storage account:
@@ -51,7 +51,7 @@ Smoke test: Once deployed to Azure, navigate between Home and Privacy in the App
 ![Console Logs in Storage](docs/app-insights-smoke.png)
 
 ### Custom Events
-Two endpoints have been created that publish a 'Spoken' event with a word of 'Hello' or 'Howdi'. Navigate to these endpoints to publish an event:
+Two endpoints have been created that publish a 'Spoken' event with a word of 'Hello' or 'Howdi'. Navigate to these endpoints in your browser to publish an event:
 
 ```
 https://as-serilogisms-....azurewebsites.net/howdi
@@ -61,8 +61,6 @@ https://as-serilogisms-....azurewebsites.net/hello
 The number of custom events published will (eventually) turn up in AppInsights (this took around 10-20 minutes initially):
 
 ![Console Logs in Storage](docs/app-insights-spoken.png)
-
-
 
 # References
 | Link | Description | 
