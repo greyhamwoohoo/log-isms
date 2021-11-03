@@ -50,9 +50,25 @@ Smoke test: Once deployed to Azure, navigate between Home and Privacy in the App
 
 ![Console Logs in Storage](docs/app-insights-smoke.png)
 
+### Custom Events
+Two endpoints have been created that publish a 'Spoken' event with a word of 'Hello' or 'Howdi'. Navigate to these endpoints to publish an event:
+
+```
+https://as-serilogisms-....azurewebsites.net/howdi
+https://as-serilogisms-....azurewebsites.net/hello
+```
+
+The number of custom events published will (eventually) turn up in AppInsights (this took around 10-20 minutes initially):
+
+![Console Logs in Storage](docs/app-insights-spoken.png)
+
+
+
 # References
 | Link | Description | 
 | ---- | ----------- | 
+| https://carldesouza.com/how-to-create-custom-events-metrics-traces-in-azure-application-insights-using-c/ | Creating custom events, metrics and traces in App Insights |
 | https://codewithmukesh.com/blog/serilog-in-aspnet-core-3-1/ | Setting up Serilog with 3.1 |
 | https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-5.0 |Environment variable / configuration providers | 
 | https://github.com/saleem-mirza/serilog-sinks-azure-analytics | The Log Analytics Sink / Provider |
+| https://docs.microsoft.com/en-us/azure/azure-monitor/app/asp-net-core | AppInsights | 
