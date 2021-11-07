@@ -1,0 +1,16 @@
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "excludedTypes": "Request"
+      }
+    },
+    "fileLoggingMode": "always",
+    "logLevel": {
+      "MyCSharpSpeakFunctionApp.SpeakFunction": "Debug",
+      "default": "Debug"
+    }
+  }
+}

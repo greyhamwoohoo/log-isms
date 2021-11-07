@@ -17,3 +17,4 @@ There are two implementations:
 | https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-5.0 |Environment variable / configuration providers | 
 | https://github.com/saleem-mirza/serilog-sinks-azure-analytics | The Log Analytics Sink / Provider |
 | https://docs.microsoft.com/en-us/azure/azure-monitor/app/asp-net-core | AppInsights | 
+| https://docs.microsoft.com/en-us/azure/azure-functions/functions-host-json | Functions: host.json configuration | 

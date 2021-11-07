@@ -5,6 +5,7 @@ An experiment with Terraform, Serilog/.Net 5, Azure Monitoring, Log Analytics, A
 There are two implementations:
 
 | Implementation | Folder |
+| -------------- | ------ |
 | AppService     | An experiment with Terraform, Serilog/.Net 5, Azure Monitoring, Log Analytics, AppInsights, AppServices and Diagnostics. |
 | Functions      | An experiment with Terraform, Azure Monitoring, Log Analytics, AppInsights and Functions. |
 
